@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block body %}
+    <h1>Artists</h1>
+
+    <a href="{{ path('artist_new') }}" class="btn btn-primary mb-3">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td>{{ artist.name }}</td>
+                <td>
+                    <a href="{{ path('artist_show', {'id': artist.id}) }}" class="btn btn-sm btn-info">show</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
